@@ -711,18 +711,59 @@
     <div class="modal-overlay" id="cta-modal">
         <div class="modal-content">
             <button class="modal-close" id="modal-close-btn">&times;</button>
-            <h2>¡Desbloqueá el Curso Completo!</h2>
-            <p>Accede a todos los videos, guía y al grupo de WhatsApp para aprobar fácil.</p>
-
+            <h2>¡Accedé a todos los videos!</h2>
+            
             <div class="payment-steps">
-                 <p> ⚠️ <strong>EL PRECIO SUBE</strong> Miércoles 27/8 - 23:59 hs</p>
-
-                <p>Seguí estos 2 simples pasos:</p>
+                <p>
+                ⚠️ <strong>EL PRECIO SUBE</strong> este miércoles 27/8 - 23:59 hs</p>
+                
+                <div class="step">
+                    <div class="step-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
                     <div class="step-text">
                         <strong>1. Transferí 67.500 al alias:</strong>
-                        <span id="alias-text">nico.dahlquist</span> 
-                        <button onclick="copyAlias()" class="copy-btn">Copiar</button>
+                        <span id="alias-text" class="alias-copy">nico.dahlquist</span>
+                        <button id="copy-btn" class="copy-button">📋 Copiar</button>
                     </div>
+                </div>
+
+                <script>
+                    document.getElementById("copy-btn").addEventListener("click", function() {
+                        const alias = document.getElementById("alias-text").innerText;
+                        navigator.clipboard.writeText(alias).then(() => {
+                            alert("Alias copiado: " + alias);
+                        }).catch(err => {
+                            console.error("Error al copiar: ", err);
+                        });
+                    });
+                </script>
+
+                <style>
+                .alias-copy {
+                    font-weight: bold;
+                    color: #2b7a2b;
+                    cursor: pointer;
+                    padding: 2px 6px;
+                    border-radius: 6px;
+                    background: #e6ffe6;
+                }
+
+                .copy-button {
+                    margin-left: 10px;
+                    padding: 4px 10px;
+                    border: none;
+                    border-radius: 6px;
+                    background: #25d366;
+                    color: white;
+                    cursor: pointer;
+                    font-size: 0.9rem;
+                    transition: 0.2s;
+                }
+
+                .copy-button:hover {
+                    background: #128c7e;
+                }
+                </style>
+
                     </div>
                     <div class="step">
                         <div class="step-icon"><i class="fa-brands fa-whatsapp"></i></div>
@@ -731,15 +772,17 @@
                             <span>Compartí la captura por WhatsApp para recibir tu acceso.</span>
                         </div>
                     </div>
+                    
+                    <a href="https://wa.me/5491130316701?text=Hola!%20Te%20envío%20el%20comprobante%20para%20el%20curso%20de%20Estadística%20Empresarial%201." target="_blank" class="whatsapp-button">
+                        <i class="fa-brands fa-whatsapp"></i> Enviar Comprobante
+                    </a>
+                    
+                    <p><hr>¿Tenés dudas, necesitás más tiempo para pagar o querés cuotas?
+                    
+                    <a href="https://wa.me/5493541233146?text=Hola!%20Me%20interesa%20el%20curso%20de%20Estadística%20Empresarial%201,%20pero%20tengo%20una%20consulta!" target="_blank" class="whatsapp-button">
+                        <i class="fa-brands fa-whatsapp"></i> Clic acá
+                    </a></p>
                 </div>
-
-        <a href="https://wa.me/5491130316701?text=Hola!%20Te%20envío%20el%20comprobante%20para%20el%20curso%20de%20Estadística%20Empresarial%201." target="_blank" class="whatsapp-button">
-            <i class="fa-brands fa-whatsapp"></i> Enviar Comprobante
-        </a>
-                
-        <a href="https://wa.me/5493541233146?text=Hola!%20Me%20interesa%20el%20curso%20de%20Estadística%20Empresarial%201,%20pero%20tengo%20una%20consulta!" target="_blank" class="whatsapp-button">
-            <i class="fa-brands fa-whatsapp"></i> Tengo dudas/<br> Necesito tiempo para pagar<br>/<br> quiero pagar en cuotas
-        </a>
         </div>
     </div>
     <!-- --- FIN: CÓDIGO HTML DE LA VENTANA MODAL (CTA) --- -->
