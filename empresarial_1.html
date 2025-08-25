@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso: Estadística Empresarial I - El Camino al 10</title>
+    <title>Curso: Estadística Empresarial II - El Camino al 10</title>
     
     <!-- Google Fonts para un look más profesional -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,10 +59,10 @@
             margin: 0 auto;
         }
 
-        /* --- SECCIÓN DE CARACTERÍSTICAS --- */
+        /* --- INICIO: SECCIÓN DE CARACTERÍSTICAS AGREGADA --- */
         .features-section {
             background: linear-gradient(135deg, #f8f9fa 0%, #f8f9fa 100%);
-            padding: 0;
+            padding: 00px 00px;
             border-radius: 16px;
             margin-bottom: 50px;
         }
@@ -92,9 +92,9 @@
             font-family: 'Poppins', sans-serif;
             font-size: 2.2em;
             font-weight: 700;
-            color: #63b3ed;
+            color: #63b3ed; /* Azul brillante como en la imagen de referencia */
             margin-bottom: 15px;
-            min-height: 60px;
+            min-height: 60px; /* Para alinear verticalmente los títulos */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -112,9 +112,11 @@
         
         .feature-box p em {
             font-style: normal;
-            color: #81e6d9;
+            color: #81e6d9; /* Un color de acento similar al secundario */
             font-weight: 600;
         }
+        /* --- FIN: SECCIÓN DE CARACTERÍSTICAS AGREGADA --- */
+
 
         /* --- Estilo de las Unidades (Tarjetas) --- */
         .unidad {
@@ -138,8 +140,8 @@
             color: var(--color-primario);
             margin-top: 0;
             border-bottom: 2px solid var(--color-borde);
-            padding-bottom: 10px;
-            margin-bottom: 15px;
+            padding-bottom: 0px;
+            margin-bottom: 0px;
         }
 
         .unidad .descripcion-unidad {
@@ -326,10 +328,6 @@
             margin-right: 10px;
         }
         
-        /* --- Responsividad --- *//* === NUEVOS ESTILOS PARA MODAL MEJORADO === */
-
-
-        
         /* --- Responsividad --- */
         @media (max-width: 768px) {
             .header-curso h1 {
@@ -342,6 +340,7 @@
             .unidad {
                 padding: 20px;
             }
+            /* Responsividad para la nueva sección */
             .features-grid {
                 grid-template-columns: 1fr;
             }
@@ -349,7 +348,7 @@
                 padding: 30px 15px;
             }
             .feature-box .feature-title {
-                min-height: auto;
+                min-height: auto; /* Quitar altura mínima en móvil */
             }
         }
 
