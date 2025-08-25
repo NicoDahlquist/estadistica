@@ -326,8 +326,162 @@
             margin-right: 10px;
         }
         
-        /* --- Responsividad --- */
+        /* --- Responsividad --- *//* === NUEVOS ESTILOS PARA MODAL MEJORADO === */
+
+.urgency-badge {
+    background: linear-gradient(135deg, #ff4757, #ff6b7a);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pricing-section {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    text-align: center;
+    border: 2px solid #00BFA5;
+}
+
+.old-price {
+    font-size: 1em;
+    color: #666;
+    text-decoration: line-through;
+    margin-bottom: 5px;
+}
+
+.current-price {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #005A9C;
+    margin-bottom: 5px;
+}
+
+.savings {
+    font-size: 1.1em;
+    color: #00BFA5;
+    font-weight: bold;
+}
+
+.benefits-list {
+    margin: 25px 0;
+    text-align: left;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding: 8px 0;
+}
+
+.benefit-item i {
+    color: #00BFA5;
+    font-size: 1.2em;
+    width: 20px;
+}
+
+.whatsapp-button-main {
+    display: inline-block;
+    background: linear-gradient(135deg, #25D366, #128c7e);
+    color: #fff;
+    padding: 18px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.whatsapp-button-main:hover {
+    background: linear-gradient(135deg, #128c7e, #25D366);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-button-secondary {
+    display: inline-block;
+    background-color: transparent;
+    color: #25D366;
+    border: 2px solid #25D366;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-button-secondary:hover {
+    background-color: #25D366;
+    color: white;
+}
+
+.guarantee {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #f8f9fa;
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-size: 0.9em;
+    color: #555;
+    border-left: 4px solid #00BFA5;
+}
+
+.guarantee i {
+    color: #00BFA5;
+    font-size: 1.2em;
+}
+
+/* Mejorar el modal content */
+.modal-content {
+    max-width: 600px;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+/* Mejorar responsive del modal */
         @media (max-width: 768px) {
+            .modal-content {
+                margin: 20px;
+                max-height: 90vh;
+                padding: 30px 25px;
+            }
+            
+            .current-price {
+                font-size: 1.8em;
+            }
+            
+            .whatsapp-button-main {
+                padding: 15px 25px;
+                font-size: 1em;
+            }
             .header-curso h1 {
                 font-size: 2.2em;
             }
