@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso: Estadística Empresarial I - El Camino al 10</title>
+    
+    <!-- Google Fonts para un look más profesional -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- Estilos Generales --- */
+        :root {
+            --color-primario: #005A9C; /* Un azul corporativo */
+            --color-secundario: #00BFA5; /* Un verde para acentos y llamadas a la acción */
+            --color-fondo: #f8f9fa;
+            --color-texto: #333;
+            --color-borde: #e0e0e0;
+            --sombra-tarjeta: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        /* --- Cabecera del Curso --- */
+        .header-curso {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header-curso h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8em;
+            color: var(--color-primario);
+            margin-bottom: 10px;
+        }
+
+        .header-curso p {
+            font-size: 1.2em;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- SECCIÓN DE CARACTERÍSTICAS --- */
+        .features-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #f8f9fa 100%);
+            padding: 0;
+            border-radius: 16px;
+            margin-bottom: 50px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .feature-box {
+            background-color: #2d3748;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            color: #e2e8f0;
+            border: 1px solid #4a5568;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-box .feature-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #63b3ed;
+            margin-bottom: 15px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .feature-box .feature-title i {
+            font-size: 1.2em;
+        }
+
+        .feature-box p {
+            font-size: 1em;
+            line-height: 1.5;
+            color: #a0aec0;
+        }
+        
+        .feature-box p em {
+            font-style: normal;
+            color: #81e6d9;
+            font-weight: 600;
+        }
+
+        /* --- Estilo de las Unidades (Tarjetas) --- */
+        .unidad {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--sombra-tarjeta);
+            border-left: 5px solid var(--color-primario);
+            transition: all 0.3s ease;
+        }
+        
+        .unidad:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .unidad h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8em;
+            color: var(--color-primario);
+            margin-top: 0;
+            border-bottom: 2px solid var(--color-borde);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .unidad .descripcion-unidad {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .contenido-seccion h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 1.3em;
+            color: #444;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        /* --- Estilo de los Items de Video (Botones) --- */
+        .lista-videos {
+            list-style: none;
+            padding: 0;
+        }
+
+        .video-item {
+            display: flex;
+            align-items: center;
+            background-color: #fdfdfd;
+            border: 1px solid var(--color-borde);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            text-decoration: none;
+            color: var(--color-texto);
+        }
+
+        .video-item:hover {
+            border-color: var(--color-secundario);
+            background-color: #f5fffd;
+            transform: translateX(5px);
+        }
+
+        .video-item .icono-video {
+            font-size: 1.8em;
+            color: var(--color-secundario);
+            margin-right: 20px;
+        }
+
+        .video-item .info-video .titulo {
+            font-weight: 700;
+            font-size: 1.1em;
+            display: block;
+        }
+
+        .video-item .info-video .descripcion {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 550px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.visible .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 2em;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: #333;
+        }
+
+        .modal-content h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--color-primario);
+            font-size: 2em;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .payment-steps {
+            text-align: left;
+            margin: 0 auto;
+            max-width: 400px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--color-secundario);
+        }
+
+        .step-icon {
+            font-size: 2em;
+            color: var(--color-primario);
+            margin-right: 20px;
+            width: 40px;
+            text-align: center;
+        }
+
+        .step-text strong {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .step-text span {
+            color: #666;
+        }
+
+        .whatsapp-button {
+            display: inline-block;
+            background-color: #25D366;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #1EBE57;
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-button i {
+            margin-right: 10px;
+        }
+        
+        /* --- Responsividad --- */
+        @media (max-width: 768px) {
+            .header-curso h1 {
+                font-size: 2.2em;
+            }
+            .container {
+                padding: 10px;
+                margin: 20px auto;
+            }
+            .unidad {
+                padding: 20px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-section {
+                padding: 30px 15px;
+            }
+            .feature-box .feature-title {
+                min-height: auto;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header-curso">
+            <h1>Estadística Empresarial I</h1>
+            <p>Te resumimos la materia para que aprendas solo lo importante, de la manera más fácil.</p>
+        </header>
+
+        <section class="features-section">
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-title"><i class="fab fa-whatsapp"></i></div>
+                    <p>Acceso a un grupo de consultas por WhatsApp durante 4 meses.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">CURSO CORTO</div>
+                    <p>Elegimos los problemas claves para aprobar, para que <em>no pierdas tiempo</em>.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">CURSO QUE FUNCIONA</div>
+                    <p>Elegimos los problemas claves para aprobar, para que <em>apruebes</em>.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">CURSO FÁCIL</div>
+                    <p>Enseñamos desde la perspectiva del estudiante, explicando todo paso a paso y desde cero.</p>
+                </div>
+            </div>
+        </section>
+
+        <main>
+            <!-- ======================= UNIDAD 0 ======================= -->
+            <section class="unidad">
+                <h2>Unidad 0: Introducción y Conceptos Fundamentales</h2>
+                <p class="descripcion-unidad">La base de todo. Aquí aprendemos a "hablar" el idioma de la estadística: variables, población, muestra y los primeros cálculos.</p>
+                
+                <div class="contenido-seccion">
+                    <h3>Teórico</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">El ADN de los Datos</span>
+                                <span class="descripcion">Clasificación de variables, diferencia entre población y muestra, y cómo organizar la información.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contenido-seccion">
+                    <h3>Práctico (Ejercicios que debes dominar)</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 8</span>
+                                <span class="descripcion">Un caso completo para identificar múltiples variables y realizar cálculos básicos sobre datos brutos.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================= UNIDAD 1 ======================= -->
+            <section class="unidad">
+                <h2>Unidad 1: Estadística Descriptiva</h2>
+                <p class="descripcion-unidad">Transformamos listas de números en información útil. Calculamos promedios, medianas y medimos qué tan dispersos están los datos.</p>
+                
+                <div class="contenido-seccion">
+                    <h3>Teórico</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Resumiendo el Universo de Datos</span>
+                                <span class="descripcion">Medidas de tendencia central, dispersión y posición para todo tipo de datos (agrupados y no agrupados).</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contenido-seccion">
+                    <h3>Práctico (Ejercicios que debes dominar)</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 1</span>
+                                <span class="descripcion">El caso base: cálculo de todas las medidas para datos no agrupados.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 5</span>
+                                <span class="descripcion">Clave para entender cómo calcular medidas desde una tabla y discutir la representatividad de la media.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 7</span>
+                                <span class="descripcion">Fundamental para aprender a comparar dos grupos de datos usando el Coeficiente de Variación.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 9</span>
+                                <span class="descripcion">El ejemplo perfecto de Promedio Ponderado, una herramienta muy útil en negocios.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 10</span>
+                                <span class="descripcion">El ejercicio maestro para datos agrupados en intervalos. Si dominas este, dominas el tema.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================= UNIDAD 2 ======================= -->
+            <section class="unidad">
+                <h2>Unidad 2: Probabilidades</h2>
+                <p class="descripcion-unidad">Aquí aprendemos a medir la incertidumbre. Es la base para poder hacer predicciones y tomar decisiones con datos incompletos.</p>
+                
+                <div class="contenido-seccion">
+                    <h3>Teórico</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Las Reglas del Azar</span>
+                                <span class="descripcion">Probabilidad condicional, independencia y el poderoso Teorema de Bayes para "invertir" la lógica.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contenido-seccion">
+                    <h3>Práctico (Ejercicios que debes dominar)</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 4</span>
+                                <span class="descripcion">El caso clásico de Teorema de Bayes. Ideal para aprender a construir el diagrama de árbol.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 5</span>
+                                <span class="descripcion">Un problema simple pero fundamental para entender la unión e intersección de eventos (Diagrama de Venn).</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 14</span>
+                                <span class="descripcion">El mejor ejercicio para trabajar con Tablas de Contingencia y verificar la independencia estadística.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================= UNIDAD 3 ======================= -->
+            <section class="unidad">
+                <h2>Unidad 3: Distribuciones de Probabilidad Discretas</h2>
+                <p class="descripcion-unidad">Modelamos situaciones donde contamos "éxitos". Estas son las primeras herramientas para predecir resultados en escenarios de negocio.</p>
+                
+                <div class="contenido-seccion">
+                    <h3>Teórico</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Las 3 Grandes: Binomial, Poisson e Hipergeométrica</span>
+                                <span class="descripcion">Cuándo y por qué usar cada uno de estos modelos. La clave está en las condiciones del problema.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contenido-seccion">
+                    <h3>Práctico (Ejercicios que debes dominar)</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 8</span>
+                                <span class="descripcion">El ejercicio Binomial por excelencia. Te pide calcular todo: puntual, acumulada y de cola.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 11</span>
+                                <span class="descripcion">Un caso de Poisson perfecto para aprender a ajustar el parámetro λ a diferentes intervalos de tiempo.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 13</span>
+                                <span class="descripcion">El ejemplo ideal de Hipergeométrica, para entender el muestreo sin reposición.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 19</span>
+                                <span class="descripcion">¡El desafío final! Este ejercicio te obliga a decidir qué modelo usar en cada inciso. Clave para el parcial.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================= UNIDAD 4 ======================= -->
+            <section class="unidad">
+                <h2>Unidad 4: Distribución Normal</h2>
+                <p class="descripcion-unidad">La distribución más importante de toda la estadística. Modelamos variables continuas como ventas, tiempos o pesos.</p>
+                
+                <div class="contenido-seccion">
+                    <h3>Teórico</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">La Campana de Gauss</span>
+                                <span class="descripcion">Estandarización (Z-score), cálculo de áreas (probabilidades) y el proceso inverso para hallar percentiles.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contenido-seccion">
+                    <h3>Práctico (Ejercicios que debes dominar)</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 2</span>
+                                <span class="descripcion">El ejercicio más completo para practicar todos los tipos de cálculo de probabilidad con la Normal.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 4</span>
+                                <span class="descripcion">Fundamental para aprender el proceso inverso: cómo encontrar la media o el desvío a partir de un percentil.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 3 (inciso c)</span>
+                                <span class="descripcion">Un caso clave que combina la Normal (para hallar una probabilidad 'p') con la Binomial.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================= UNIDAD 5 ======================= -->
+            <section class="unidad">
+                <h2>Unidad 5: Suma de Variables y Teorema Central del Límite</h2>
+                <p class="descripcion-unidad">¿Qué pasa cuando sumamos los resultados de muchas variables? Aquí descubrimos el Teorema más poderoso de la estadística.</p>
+                
+                <div class="contenido-seccion">
+                    <h3>Teórico</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">El Poder de la Suma</span>
+                                <span class="descripcion">Suma de variables Normales y el Teorema Central del Límite (TCL) para variables no normales.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contenido-seccion">
+                    <h3>Práctico (Ejercicios que debes dominar)</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 1</span>
+                                <span class="descripcion">El caso base: cómo calcular la probabilidad de la suma de variables que ya son Normales.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 2</span>
+                                <span class="descripcion">El ejemplo perfecto del Teorema Central del Límite (TCL) en acción con una distribución desconocida.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 6 (inciso c)</span>
+                                <span class="descripcion">Un problema avanzado que combina la Suma de Variables con un posterior cálculo Binomial.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================= UNIDAD 6 ======================= -->
+            <section class="unidad">
+                <h2>Unidad 6: Números Índices</h2>
+                <p class="descripcion-unidad">Una herramienta esencial en economía y finanzas para medir la variación de precios o cantidades a lo largo del tiempo.</p>
+                
+                <div class="contenido-seccion">
+                    <h3>Teórico</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Midiendo el Cambio</span>
+                                <span class="descripcion">Índices simples y los dos grandes índices agregados: Laspeyres y Paasche.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contenido-seccion">
+                    <h3>Práctico (Ejercicios que debes dominar)</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 1</span>
+                                <span class="descripcion">Un ejemplo claro y directo para calcular e interpretar Índices Simples.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 3</span>
+                                <span class="descripcion">El ejercicio más completo que te pide calcular todos los índices: Simples, Agregado, Laspeyres y Paasche.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    
+
+    
+    <div class="modal-overlay" id="cta-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close-btn">&times;</button>
+            <h2>¡Desbloquea el Curso Completo!</h2>
+            <p>Accede a todos los videos, material de estudio y al grupo de WhatsApp para aprobar la materia.<br><br>Seguí estos 2 simples pasos:</p>
+            
+            <div class="payment-steps">
+                <div class="step">
+                    <div class="step-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
+                    <div class="step-text">
+                        <strong>1. Transferí 67.500 al alias:</strong>
+                        <span>nico.dahlquist</span>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div class="step-text">
+                        <strong>2. Enviá el comprobante:</strong>
+                        <span>Compartí la captura por WhatsApp para recibir tu acceso.</span>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://wa.me/5491130316701" target="_blank" class="whatsapp-button">
+                <i class="fa-brands fa-whatsapp"></i> Enviar Comprobante
+            </a>
+        </div>
+    </div>
+    <!-- --- FIN: CÓDIGO HTML DE LA VENTANA MODAL (CTA) --- -->
+
+
+    <!-- ================================================== -->
+    <!-- --- INICIO: SCRIPT JAVASCRIPT PARA LA LÓGICA --- -->
+    <!-- ================================================== -->
+    <script>
+        // Seleccionamos todos los elementos que representan un video
+        const videoItems = document.querySelectorAll('.video-item');
+        
+        // Seleccionamos los elementos de la ventana modal
+        const modal = document.getElementById('cta-modal');
+        const closeModalBtn = document.getElementById('modal-close-btn');
+
+        // Función para mostrar la ventana modal
+        const showModal = () => {
+            modal.classList.add('visible');
+        };
+
+        // Función para ocultar la ventana modal
+        const hideModal = () => {
+            modal.classList.remove('visible');
+        };
+
+        // Añadimos un "escuchador" de clics a CADA video
+        videoItems.forEach(item => {
+            item.addEventListener('click', (event) => {
+                // Prevenimos la acción por defecto del enlace (que era navegar a '#')
+                event.preventDefault();
+                // Mostramos nuestra ventana modal
+                showModal();
+            });
+        });
+
+        // Añadimos la lógica para cerrar la ventana modal
+        // 1. Al hacer clic en el botón de cerrar (la 'X')
+        closeModalBtn.addEventListener('click', hideModal);
+
+        // 2. Al hacer clic fuera del contenido de la ventana (en el fondo oscuro)
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                hideModal();
+            }
+        });
+    </script>
+
+</body>
+</html>
