@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso: Estadística Empresarial II - El Camino al 10</title>
+    
+    <!-- Google Fonts para un look más profesional -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- Estilos Generales --- */
+        :root {
+            --color-primario: #005A9C; /* Un azul corporativo */
+            --color-secundario: #00BFA5; /* Un verde para acentos y llamadas a la acción */
+            --color-fondo: #f8f9fa;
+            --color-texto: #333;
+            --color-borde: #e0e0e0;
+            --sombra-tarjeta: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        /* --- Cabecera del Curso --- */
+        .header-curso {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header-curso h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8em;
+            color: var(--color-primario);
+            margin-bottom: 10px;
+        }
+
+        .header-curso p {
+            font-size: 1.2em;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* --- INICIO: SECCIÓN DE CARACTERÍSTICAS AGREGADA --- */
+        .features-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #f8f9fa 100%);
+            padding: 00px 00px;
+            border-radius: 16px;
+            margin-bottom: 50px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .feature-box {
+            background-color: #2d3748;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            color: #e2e8f0;
+            border: 1px solid #4a5568;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-box .feature-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            color: #63b3ed; /* Azul brillante como en la imagen de referencia */
+            margin-bottom: 15px;
+            min-height: 60px; /* Para alinear verticalmente los títulos */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .feature-box .feature-title i {
+            font-size: 1.2em;
+        }
+
+        .feature-box p {
+            font-size: 1em;
+            line-height: 1.5;
+            color: #a0aec0;
+        }
+        
+        .feature-box p em {
+            font-style: normal;
+            color: #81e6d9; /* Un color de acento similar al secundario */
+            font-weight: 600;
+        }
+        /* --- FIN: SECCIÓN DE CARACTERÍSTICAS AGREGADA --- */
+
+
+        /* --- Estilo de las Unidades (Tarjetas) --- */
+        .unidad {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--sombra-tarjeta);
+            border-left: 5px solid var(--color-primario);
+            transition: all 0.3s ease;
+        }
+        
+        .unidad:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .unidad h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8em;
+            color: var(--color-primario);
+            margin-top: 0;
+            border-bottom: 2px solid var(--color-borde);
+            padding-bottom: 0px;
+            margin-bottom: 0px;
+        }
+
+        .unidad .descripcion-unidad {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .contenido-seccion h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 1.3em;
+            color: #444;
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        /* --- Estilo de los Items de Video (Botones) --- */
+        .lista-videos {
+            list-style: none;
+            padding: 0;
+        }
+
+        .video-item {
+            display: flex;
+            align-items: center;
+            background-color: #fdfdfd;
+            border: 1px solid var(--color-borde);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            text-decoration: none;
+            color: var(--color-texto);
+        }
+
+        .video-item:hover {
+            border-color: var(--color-secundario);
+            background-color: #f5fffd;
+            transform: translateX(5px);
+        }
+
+        .video-item .icono-video {
+            font-size: 1.8em;
+            color: var(--color-secundario);
+            margin-right: 20px;
+        }
+
+        .video-item .info-video .titulo {
+            font-weight: 700;
+            font-size: 1.1em;
+            display: block;
+        }
+
+        .video-item .info-video .descripcion {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 550px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.visible .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 2em;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: #333;
+        }
+
+        .modal-content h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--color-primario);
+            font-size: 2em;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .payment-steps {
+            text-align: left;
+            margin: 0 auto;
+            max-width: 400px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--color-secundario);
+        }
+
+        .step-icon {
+            font-size: 2em;
+            color: var(--color-primario);
+            margin-right: 20px;
+            width: 40px;
+            text-align: center;
+        }
+
+        .step-text strong {
+            display: block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .step-text span {
+            color: #666;
+        }
+
+        .whatsapp-button {
+            display: inline-block;
+            background-color: #25D366;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #1EBE57;
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-button i {
+            margin-right: 10px;
+        }
+        
+        /* --- Responsividad --- */
+        @media (max-width: 768px) {
+            .header-curso h1 {
+                font-size: 2.2em;
+            }
+            .container {
+                padding: 10px;
+                margin: 20px auto;
+            }
+            .unidad {
+                padding: 20px;
+            }
+            /* Responsividad para la nueva sección */
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-section {
+                padding: 30px 15px;
+            }
+            .feature-box .feature-title {
+                min-height: auto; /* Quitar altura mínima en móvil */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header-curso">
+            <h1>Estadística Empresarial II</h1>
+            <p>Te resumimos la materia para que aprendas solo lo importante, de la manera más fácil</p>
+        </header>
+
+        <!-- ======================= SECCIÓN DE CARACTERÍSTICAS ======================= -->
+        <section class="features-section">
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-title"><i class="fab fa-whatsapp"></i></div>
+                    <p>Acceso a un grupo de consultas por WhatsApp durante 4 meses.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">CURSO CORTO</div>
+                    <p>Elegimos los problemas claves para aprobar, para que <em>no pierdas tiempo</em>.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">CURSO QUE FUNCIONA</div>
+                    <p>Elegimos los problemas claves para aprobar, para que <em>apruebes</em>.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-title">CURSO FÁCIL</div>
+                    <p>Enseñamos desde la perspectiva del estudiante, explicando todo paso a paso y desde cero.</p>
+                </div>
+            </div>
+        </section>
+
+        <main>
+            <!-- ======================= UNIDAD 1 ======================= -->
+            <!-- ======================= UNIDAD 1 ======================= -->
+            <section class="unidad">
+                <h2>Unidad 1: Fundamentos de la Inferencia - Distribuciones en el Muestreo</h2>
+                <p class="descripcion-unidad">Aquí sentamos las bases. Entender esta unidad es crucial, ya que todo lo que sigue se construye sobre estos conceptos.</p>
+                
+                <div class="contenido-seccion">
+                    <h3>Teórico</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">La Piedra Angular de la Inferencia</span>
+                                <span class="descripcion">Población vs Muestra, Teorema Central del Límite y las distribuciones de la Media y Proporción Muestral.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contenido-seccion">
+                    <h3>Práctico (Ejercicios que debes dominar)</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 4</span>
+                                <span class="descripcion">El TCL en acción. Observa el poder del tamaño de la muestra al resolver para n=9, 25 y 100.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 7</span>
+                                <span class="descripcion">El caso clásico de la distribución de la proporción muestral. Si entiendes este, los entiendes todos.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================= UNIDAD 2 ======================= -->
+            <section class="unidad">
+                <h2>Unidad 2: Estimación por Intervalos para Una Población</h2>
+                <p class="descripcion-unidad">Dejamos de buscar probabilidades y empezamos a estimar los verdaderos valores de la población. Esta es la primera gran herramienta de la inferencia.</p>
+                
+                <div class="contenido-seccion">
+                    <h3>Teórico</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Construyendo Intervalos de Confianza</span>
+                                <span class="descripcion">El concepto de confianza, la estructura Z vs t-Student, Chi-Cuadrado para varianza y cálculo de 'n'.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contenido-seccion">
+                    <h3>Práctico (Ejercicios que debes dominar)</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 1</span>
+                                <span class="descripcion">El caso base: IC para la media con σ conocida (Z) y cálculo de tamaño de muestra.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 5</span>
+                                <span class="descripcion">El caso más común: IC para la media con σ desconocida (t-Student) a partir de datos crudos.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 8</span>
+                                <span class="descripcion">El IC para proporciones por excelencia, incluyendo un cálculo de 'n' muy completo.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 12</span>
+                                <span class="descripcion">Un ejemplo claro y directo de IC para el desvío estándar usando Chi-Cuadrado.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================= UNIDAD 3 ======================= -->
+            <section class="unidad">
+                <h2>Unidad 3: Pruebas de Hipótesis para Una Población</h2>
+                <p class="descripcion-unidad">Ahora pasamos de estimar a tomar decisiones. ¿Tenemos suficiente evidencia para afirmar que algo ha cambiado?</p>
+                
+                <div class="contenido-seccion">
+                    <h3>Teórico</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">El Arte de Tomar Decisiones con Datos</span>
+                                <span class="descripcion">La lógica de H₀ y H₁, errores Tipo I y II, Potencia de la Prueba y el procedimiento de 5 pasos.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contenido-seccion">
+                    <h3>Práctico (Ejercicios que debes dominar)</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 2</span>
+                                <span class="descripcion">El más completo de PH para la media (Z). Incluye prueba, error, IC, potencia y 'n'. ¡Si resuelves este, lo sabes todo!</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 13</span>
+                                <span class="descripcion">El equivalente al anterior, pero para proporciones. Un caso unilateral que también pide potencia y 'n'.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 11</span>
+                                <span class="descripcion">Un caso realista de PH para la media con σ desconocida (t-Student) a partir de datos crudos.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 22</span>
+                                <span class="descripcion">Excelente ejemplo de PH para la varianza (Chi-Cuadrado) con un contexto de negocio claro.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================= UNIDAD 4 ======================= -->
+            <section class="unidad">
+                <h2>Unidad 4: Inferencia para Dos Poblaciones</h2>
+                <p class="descripcion-unidad">Comparamos dos grupos. ¿Son diferentes sus promedios? ¿Tiene uno más variabilidad que el otro?</p>
+                
+                <div class="contenido-seccion">
+                    <h3>Teórico</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Comparando Grupos: La Guía Definitiva</span>
+                                <span class="descripcion">Muestras Independientes vs. Dependientes, Prueba F para varianzas y los distintos tipos de pruebas t.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contenido-seccion">
+                    <h3>Práctico (Ejercicios que debes dominar)</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 9</span>
+                                <span class="descripcion">El ejercicio ideal para muestras independientes. Te obliga a hacer la Prueba F y luego la prueba t.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 12</span>
+                                <span class="descripcion">El caso clásico de muestras dependientes ("antes y después"). Fundamental para entender este diseño.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================= UNIDAD 5 ======================= -->
+            <section class="unidad">
+                <h2>Unidad 5: Análisis de Datos Categóricos con Chi-Cuadrado</h2>
+                <p class="descripcion-unidad">Dejamos los promedios para analizar relaciones entre variables cualitativas (categorías).</p>
+                
+                <div class="contenido-seccion">
+                    <h3>Teórico</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Relaciones Ocultas en las Categorías</span>
+                                <span class="descripcion">Cuándo y cómo usar las pruebas de Bondad de Ajuste e Independencia con Chi-Cuadrado.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contenido-seccion">
+                    <h3>Práctico (Ejercicios que debes dominar)</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 1</span>
+                                <span class="descripcion">Un caso claro de Bondad de Ajuste para comparar datos actuales con proporciones históricas.</span>
+                            </div>
+                        </a>
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 4</span>
+                                <span class="descripcion">Un ejemplo perfecto de Prueba de Independencia usando una tabla de contingencia.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ======================= UNIDAD 6 ======================= -->
+            <section class="unidad">
+                <h2>Unidad 6: Regresión y Correlación Lineal Simple</h2>
+                <p class="descripcion-unidad">Buscamos modelar y predecir. ¿Podemos estimar el valor de una variable a partir de otra?</p>
+                
+                <div class="contenido-seccion">
+                    <h3>Teórico</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">El Poder de la Predicción</span>
+                                <span class="descripcion">El modelo de regresión, interpretación de 'r' y 'R²', validación del modelo y los diferentes intervalos.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contenido-seccion">
+                    <h3>Práctico (Ejercicios que debes dominar)</h3>
+                    <div class="lista-videos">
+                        <a href="#" class="video-item">
+                            <i class="fa-solid fa-circle-play icono-video"></i>
+                            <div class="info-video">
+                                <span class="titulo">Ejercicio 1</span>
+                                <span class="descripcion">El ejercicio más completo. Construye todo desde cero: recta, R², validación e intervalos. ¡Domina la unidad con este!</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    
+    <div class="modal-overlay" id="cta-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close-btn">&times;</button>
+            <h2>¡Desbloquea el Curso Completo!</h2>
+            <p>Accede a todos los videos, material de estudio y al grupo de WhatsApp para aprobar la materia.<br><br>Seguí estos 2 simples pasos:</p>
+            
+            <div class="payment-steps">
+                <div class="step">
+                    <div class="step-icon"><i class="fa-solid fa-money-bill-transfer"></i></div>
+                    <div class="step-text">
+                        <strong>1. Transferí 67.500 al alias:</strong>
+                        <span>nico.dahlquist</span>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                    <div class="step-text">
+                        <strong>2. Enviá el comprobante:</strong>
+                        <span>Compartí la captura por WhatsApp para recibir tu acceso.</span>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://wa.me/5491130316701" target="_blank" class="whatsapp-button">
+                <i class="fa-brands fa-whatsapp"></i> Enviar Comprobante
+            </a>
+        </div>
+    </div>
+    <!-- --- FIN: CÓDIGO HTML DE LA VENTANA MODAL (CTA) --- -->
+
+
+    <!-- ================================================== -->
+    <!-- --- INICIO: SCRIPT JAVASCRIPT PARA LA LÓGICA --- -->
+    <!-- ================================================== -->
+    <script>
+        // Seleccionamos todos los elementos que representan un video
+        const videoItems = document.querySelectorAll('.video-item');
+        
+        // Seleccionamos los elementos de la ventana modal
+        const modal = document.getElementById('cta-modal');
+        const closeModalBtn = document.getElementById('modal-close-btn');
+
+        // Función para mostrar la ventana modal
+        const showModal = () => {
+            modal.classList.add('visible');
+        };
+
+        // Función para ocultar la ventana modal
+        const hideModal = () => {
+            modal.classList.remove('visible');
+        };
+
+        // Añadimos un "escuchador" de clics a CADA video
+        videoItems.forEach(item => {
+            item.addEventListener('click', (event) => {
+                // Prevenimos la acción por defecto del enlace (que era navegar a '#')
+                event.preventDefault();
+                // Mostramos nuestra ventana modal
+                showModal();
+            });
+        });
+
+        // Añadimos la lógica para cerrar la ventana modal
+        // 1. Al hacer clic en el botón de cerrar (la 'X')
+        closeModalBtn.addEventListener('click', hideModal);
+
+        // 2. Al hacer clic fuera del contenido de la ventana (en el fondo oscuro)
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                hideModal();
+            }
+        });
+    </script>
+
+</body>
+</html>
