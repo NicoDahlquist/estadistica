@@ -487,6 +487,26 @@
                 font-size: 1.2em;
                 padding: 15px 35px;
             }
+            .header-curso h1 {
+                font-size: 2.2em;
+            }
+            .container {
+                padding: 10px;
+                margin: 20px auto;
+            }
+            .unidad {
+                padding: 20px;
+            }
+            /* Responsividad para la nueva sección */
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-section {
+                padding: 30px 15px;
+            }
+            .feature-box .feature-title {
+                min-height: auto; /* Quitar altura mínima en móvil */
+            }
         }
         /* --- FIN: Estilos para la Sección CTA Final --- */
 
@@ -513,28 +533,6 @@
         }
         
         /* --- Responsividad --- */
-        @media (max-width: 768px) {
-            .header-curso h1 {
-                font-size: 2.2em;
-            }
-            .container {
-                padding: 10px;
-                margin: 20px auto;
-            }
-            .unidad {
-                padding: 20px;
-            }
-            /* Responsividad para la nueva sección */
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            .features-section {
-                padding: 30px 15px;
-            }
-            .feature-box .feature-title {
-                min-height: auto; /* Quitar altura mínima en móvil */
-            }
-        }
 
     </style>
 </head>
